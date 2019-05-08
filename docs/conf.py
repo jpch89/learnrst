@@ -67,4 +67,9 @@ html_static_path = ['_static']
 # master_doc = 'index'
 
 # 支持中文 PDF 生成
+# https://github.com/rtfd/readthedocs.org/commit/649b8bc2eba9722ee40f630a00e42ea30d3e37e0
 latex_engine = 'xelatex'
+latex_use_xindy = False
+latex_elements = {
+    'preamble': '\\usepackage[UTF8]{ctex}\n',
+}
