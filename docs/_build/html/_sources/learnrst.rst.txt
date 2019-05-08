@@ -1,5 +1,3 @@
-reStructuredText 漫游指南
-
 ##########################
 1. reStructuredText 工具链
 ##########################
@@ -203,4 +201,3 @@ reStructuredText 漫游指南
 #. reStructuredText Primer http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 #. Why You Shouldn’t Use “Markdown” for Documentation http://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
 #. Eric Holscher - Documenting your project with Sphinx & Read the Docs - PyCon 2016 https://www.youtube.com/watch?v=hM4I58TA72g
-#. 
