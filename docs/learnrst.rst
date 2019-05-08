@@ -22,8 +22,8 @@
 
 .. hint::
 
-    看到页面右上角的 ``View page source`` 链接了吗？\
-    《reStructuredText 漫游指南》全文都是用 ``reStructuredText`` 语法写就的，点击该按钮即可查看本页面的 ``rst`` 源码。\
+    看到页面右上角的 ``Edit on GitHub`` 链接了吗？\
+    《reStructuredText 漫游指南》全文都是用 ``reStructuredText`` 语法写就的，点击该按钮跳转到 ``GitHub``，然后点击 ``Raw`` 即可查看本页面的 ``rst`` 源码。\
     善用此功能可以在 ``reStructuredText`` 的探索之旅中助你一臂之力！
 
 *******************************
