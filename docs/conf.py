@@ -63,4 +63,8 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# 如果不给 requirements.txt 则需要指定 master_doc
 # master_doc = 'index'
+
+# 支持中文 PDF 生成
+latex_engine = 'xelatex'
