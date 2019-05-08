@@ -1,6 +1,6 @@
-##########################
-1. reStructuredText 工具链
-##########################
+##############################
+1. reStructuredText 工具链介绍
+##############################
 
 ************
 1.1 收拾行囊
@@ -11,7 +11,7 @@
 
 **懒人版旅行清单**
 
-- ``reST`` 的在线编辑器：http://rst.ninjs.org/
+- `reStructuredText 的在线编辑器 <http://rst.ninjs.org/>`_
 
 **VS Code 版旅行清单**
 
@@ -19,6 +19,12 @@
 - ``Visual Studio Code`` 文本编辑器
 - ``Python`` 插件
 - ``reStructuredText`` 插件
+
+.. hint::
+
+    看到页面右上角的 ``View page source`` 链接了吗？\
+    《reStructuredText 漫游指南》全文都是用 ``reStructuredText`` 语法写就的，点击该按钮即可查看本页面的 ``rst`` 源码。\
+    善用此功能可以在 ``reStructuredText`` 的探索之旅中助你一臂之力！
 
 *******************************
 1.2 reStructuredText 漫游路线图
@@ -36,7 +42,7 @@
 - 撰写独立的文档，比如写一本书
 
 .. note::
-    
+
     - ``reStructuredText`` 是一个单词，不要加空格，注意大小写。
     - ``reStructuredText`` 还可以简写为 ``reST``，与英语单词休息（``rest``）发音相同。
     - ``rst`` 是 ``reStructuredText`` 文件的扩展名。
@@ -59,11 +65,11 @@
 - 通过 ``Pygments`` 模块支持代码高亮
 - 强大的内置扩展与第三方扩展
 
-位于 ``reST`` 工具链顶端的是 ``Read the Docs`` https://readthedocs.org/，它为 ``Sphinx`` 文档提供托管服务。\
+位于 ``reST`` 工具链顶端的是 `Read the Docs <https://readthedocs.org/>`_，它为 ``Sphinx`` 文档提供托管服务。\
 还可以与 ``GitHub`` 连接，只要 ``GitHub`` 仓库中的文档发生改动，就会自动重新构建文档，实现了文档的持续集成。\
 最终你可以很方便地把最新文档呈献给公众使用，著名的 ``requests`` 库和 ``Godot Engine`` 游戏引擎就使用了它来提供文档。
 
-.. note:: ``Read the Docs`` 网址的后缀是 ``org`` 而不是 ``com``，输入错了可是会提示你付费的哦！
+.. warning:: ``Read the Docs`` https://readthedocs.org/ 网址的后缀是 ``org`` 而不是 ``com``，输入错了可是会提示你付费的哦！
 
 **********************
 1.3 与 Markdown 的比较
@@ -92,12 +98,12 @@
 - 变体多，没有统一的标准。
 
     - 比如说写标题的时候有的要加空格 ``# 标题``，有的不要空格 ``#标题``。
-    - ``Commonmark`` https://commonmark.org/ 是一个专门为 ``Markdown`` 研发的标准，但好像没什么人用。
+    - `Commonmark <https://commonmark.org/>`_ 是一个专门为 ``Markdown`` 研发的标准，但好像没什么人用。
 
 - 每种工具的 ``Markdown`` 风格（``flavor``）不一样。
     
-    - ``GitHub`` 风格：https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown
-    - ``Markdown Extra`` 风格：https://michelf.ca/projects/php-markdown/extra/#fenced-code-blocks
+    - `GitHub 风格 <https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown/>`_
+    - `Markdown Extra 风格 <https://michelf.ca/projects/php-markdown/extra/#fenced-code-blocks/>`_
 
 - 扩展性差，而 ``reST`` 可以轻松地自定义标记。
 - 缺乏语义性标记，而 ``reST`` 有警告、错误等语义性标记。
@@ -107,11 +113,15 @@
 2. reStructuredText 语法
 ############################
 
-**************
-2.1 段落与标题
-**************
+*****************
+2.1 reST 基本结构
+*****************
+
+2.1.1 段落
+==========
 
 **段落**\ （``paragraph``）是被一个或多个空行分隔的文本。\
+与 ``Python`` 语言一样，缩进对于 ``reST`` 也很重要，同一段落的文字必须靠左对齐且具有相同的缩进。\
 在 ``reST`` 中，另起一行写是不会换行的，如果要换行就需要额外空出一行，*让上下文形成两个独立的段落*。
 
 假如你在 ``rst`` 文件中这么写：
@@ -178,20 +188,72 @@
         我是第一句话。我是第二句话。
 
     对于那些在另起一行时不会自动给中文加空格的解析器，在行尾写一个反斜杠 ``\`` 对最终效果没有任何影响。
-    
+
+2.1.2 标题
+==========
+
 **标题**\ 在 ``reST`` 中的具体书写规则如下：
 
 - 标题由可选的上划线、标题内容和下划线组成。
-- 标题需要自成一个段落，即与其他内容至少保持一个空行的间距。
+- 标题需要自成一个段落，即与其他文本至少保持一个空行的间距。
+- 上划线和下划线的长度要相等，并且需要大于等于标题长度。
 - 标题的上划线和下划线可以从这些字符中挑选：
+  ::
 
-这里给出一套 ``Python`` 文档的标题撰写规范。
+      ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
+  
+  其中推荐使用的字符是下面这些：
+  ::
+  
+      = - ` : . ' " ~ ^ _ * + #
 
+- 照顾到一些人的选择困难症，这里直接给出一套 `Python 文档风格指南`_ 推荐的写法：
+
+    - 一级标题（部分）：``#`` 做上划线和下划线
+    - 二级标题（章节）：``*`` 做上划线和下划线
+    - 三级标题（小节）：``=`` 做下划线
+    - 四级标题（子小节）：``-`` 做下划线
+    - 五级标题（子小节的子小节）：``^`` 做下划线
+    - 六级标题（段落）：``"`` 做下划线
+
+按照 `Python 文档风格指南`_ 推荐的写法，标题相关的 ``rst`` 源码可以写成如下形式：
+::
+
+    ###############
+    一级标题（部分）
+    ###############
+
+    ***************
+    二级标题（章节）
+    ***************
+
+    三级标题（小节）
+    ===============
+
+    四级标题（子小节）
+    -----------------
+
+    五级标题（子小节的子小节）
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+    六级标题（段落）
+    """""""""""""""
+
+.. note::
+
+    其实 `Python 文档风格指南`_ 还推荐使用 ``3`` 个空格作为文本缩进，使用 ``4`` 个空格作为代码缩进。\
+    强迫症在此表示强烈不满，所以我在书写 ``rst`` 格式的文件时一律采用 ``4`` 个空格缩进。
+    
+    风格指南只是一个指导性的文件，至于在实践中到底应该怎么写，大家可以自行选择，一般以公司规定为准。
+
+.. _`Python 文档风格指南`: https://devguide.python.org/documenting/#style-guide
 
 
 ****************
 2.2 常用行内标记
 ****************
+
+2.1.1 
 
 
 ########
@@ -201,3 +263,4 @@
 #. reStructuredText Primer http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 #. Why You Shouldn’t Use “Markdown” for Documentation http://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
 #. Eric Holscher - Documenting your project with Sphinx & Read the Docs - PyCon 2016 https://www.youtube.com/watch?v=hM4I58TA72g
+#. Python’s Style Guide for documenting https://devguide.python.org/documenting/#style-guide
