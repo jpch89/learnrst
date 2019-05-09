@@ -180,7 +180,7 @@
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>看到页面右上角的 <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">page</span> <span class="pre">source</span></code> 链接了吗？《reStructuredText 漫游指南》全文都是用 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 语法写就的，点击该按钮即可查看本页面的 <code class="docutils literal notranslate"><span class="pre">rst</span></code> 源码。善用此功能可以在 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 的探索之旅中助你一臂之力！</p>
+<p>看到页面右上角的 <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> 链接了吗？《reStructuredText 漫游指南》全文都是用 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 语法写就的，点击该按钮跳转到 <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>，然后点击 <code class="docutils literal notranslate"><span class="pre">Raw</span></code> 即可查看本页面的 <code class="docutils literal notranslate"><span class="pre">rst</span></code> 源码。善用此功能可以在 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 的探索之旅中助你一臂之力！</p>
 </div>
 </div>
 <div class="section" id="id3">
@@ -394,6 +394,36 @@ I&#39;m fine, and you?
 </div>
 <div class="section" id="id7">
 <h2>2.2 常用行内标记<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>常用的行内标记十分简单：</p>
+<ul class="simple">
+<li><p>斜体：被一个星号 <code class="docutils literal notranslate"><span class="pre">*</span></code> 包围的文字拥有斜体样式，比如 <code class="docutils literal notranslate"><span class="pre">*斜体*</span></code> 的显示效果是<em>斜体</em>。</p></li>
+<li><p>粗体：被两个星号 <code class="docutils literal notranslate"><span class="pre">**</span></code> 包围的文字拥有粗体样式，比如 <code class="docutils literal notranslate"><span class="pre">**粗体**</span></code> 的显示效果是<strong>粗体</strong>。</p></li>
+<li><p>行内代码：被两个反引号 <code class="docutils literal notranslate"><span class="pre">``</span></code> 包围的文字是行内代码，比如 <code class="docutils literal notranslate"><span class="pre">``inline</span> <span class="pre">code``</span></code> 的显示效果是 <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">code</span></code>。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这些行内标记有一些使用限制：</p>
+<ul>
+<li><p>它们不能嵌套使用。</p></li>
+<li><p>被包裹的内容不能以空格开始或结束，比如这样是不合法的行内样式 <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">内容*</span></code>。</p></li>
+<li><p>行内标记与其周围文字必须由非单词字符（<code class="docutils literal notranslate"><span class="pre">non-word</span> <span class="pre">character</span></code>）隔开。比如 <code class="docutils literal notranslate"><span class="pre">我是**粗体**</span></code> 是不合法的行内标记，因为“是”和星号之间没有用非单词字符隔开。我们一般使用空格分隔，另外标点符号天然有分隔的功能。</p></li>
+<li><p>如果不想显示多余的空格，需要在空格前加入反斜杠 <code class="docutils literal notranslate"><span class="pre">\</span></code> 转义，举例如下。</p>
+<p>现有 <code class="docutils literal notranslate"><span class="pre">rst</span></code> 源码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>你看这个面，它 **又长又宽**。
+</pre></div>
+</div>
+<p>渲染效果为：</p>
+<p>你看这个面，它 <strong>又长又宽</strong>。</p>
+<p>可见在 <strong>又长又宽</strong> 的前面多出来了一个空格，这时我们可以使用反斜杠把该空格转义，不让其显示。修改 <code class="docutils literal notranslate"><span class="pre">rst</span></code> 源码如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>你看这个面，它\ **又长又宽**。
+</pre></div>
+</div>
+<p>显示效果为：</p>
+<p>你看这个面，它<strong>又长又宽</strong>。</p>
+<p>空格如愿消失了！</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="id8">
